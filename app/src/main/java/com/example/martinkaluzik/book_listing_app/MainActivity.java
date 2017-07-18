@@ -127,14 +127,14 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     int totalItems = result.getInt("totalItems");
-
+                    // Remove all books from the adapter
+                    bookAdapter.clear();
                     if(totalItems !=0){
                         // Get the docs json array
                         JSONArray docs = result.getJSONArray("items");
                         // Parse json array into array of model objects
                         final ArrayList<Book> books = Book.fromJson(docs);
-                        // Remove all books from the adapter
-                        bookAdapter.clear();
+
                         // Load model objects into the adapter
                         for (Book book : books) {
                             bookAdapter.add(book); // add book through the adapter
@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setAction("Action", null).show();
                         NoData.setVisibility(View.VISIBLE);
                     }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
