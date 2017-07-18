@@ -9,4 +9,8 @@
     <!-- Views sizes -->
     <dimen name="big_size_element">150dp</dimen>
 
+    <!-- Text sizes -->
+    <dimen name="no_data_match">25sp</dimen>
+
+
 </resources>

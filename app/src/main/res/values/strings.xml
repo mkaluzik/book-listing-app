@@ -6,4 +6,6 @@
 
 <string name="search_title">Search Books</string>
 <string name="title_activity_search_results">SearchResultsActivity</string>
+    <string name="emptyList">Sorry, there are no results for this keyword. Please try to use another one.</string>
+
 </resources>

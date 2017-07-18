@@ -17,10 +17,21 @@
         android:indeterminate="true"
         android:visibility="gone" />
 
+    <TextView
+        android:id="@+id/empty_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/no_data_match"
+        android:layout_margin="@dimen/horizontal_margin"
+        android:visibility="gone"
+        android:text="@string/emptyList" >
+    </TextView>
+
     <ListView
         android:id="@+id/booksListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
 
 </LinearLayout>

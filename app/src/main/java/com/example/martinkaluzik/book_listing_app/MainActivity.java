@@ -11,8 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView BooksListView;
     private BookListingAdapter bookAdapter;
     private ProgressBar progressBar;
+    private TextView NoData;
     String searchQuery = "";
 
 
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         //Set the views
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         BooksListView = (ListView) findViewById(R.id.booksListView);
-
+        NoData = (TextView) findViewById(R.id.empty_list_item);
         //Creates the BookListingAdapter and assign it to the ListView
         ArrayList<Book> aBooks = new ArrayList<>();
         bookAdapter = new BookListingAdapter(this, aBooks);
@@ -138,10 +141,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                         bookAdapter.notifyDataSetChanged();
                         progressBar.setVisibility(ProgressBar.GONE);
+                        NoData.setVisibility(View.GONE);
                     }
                     else{
                         Snackbar.make(BooksListView, "No results found for " + searchQuery, Snackbar.LENGTH_LONG)
                                 .setAction("Action", null).show();
+                        NoData.setVisibility(View.VISIBLE);
                     }
 
                 } catch (JSONException e) {
